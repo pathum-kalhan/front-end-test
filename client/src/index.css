@@ -6,7 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.page {
+/* .page {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 160px auto auto;
@@ -28,7 +28,7 @@ body {
 
 .header input {
   float: right;
-}
+} */
 
 .sidebar {
   grid-area: sidebar;
@@ -46,10 +46,10 @@ body {
   padding: 8px 0;
 }
 
-.content {
+/* .content {
   grid-area: content;
   grid-column: span 2;
-}
+} */
 
 .footer {
   grid-area: footer;
