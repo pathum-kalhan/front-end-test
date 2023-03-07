@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Toolbar, Grid, CssBaseline } from "@mui/material";
-import Header from "./components/Header";
+import { Toolbar, Grid, CssBaseline, Alert } from "@mui/material";
+import Header from "./components/layout/Header";
 import { Article, Category } from "./types";
 import ArticleCard from "./components/ArticleCard";
 import { useQuery, gql } from "@apollo/client";
-import DrawerComponent from "./components/Drawer";
+import DrawerComponent from "./components/layout/Drawer";
+import { Box } from "@mui/system";
+import Footer from "./components/layout/Footer";
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
@@ -82,9 +84,15 @@ export default function App() {
       setCategories(data.categories);
     }
   }, [data]);
-  console.log("items",items)
+
+  if (loading) return <div>Loading...</div>;
+
+  if (error) {
+    return <Alert severity="error">Data loading failed</Alert>;
+  }
+
   return (
-    <div>
+    <Box >
       <CssBaseline />
       <Header
         toggleDrawer={toggleDrawer}
@@ -92,15 +100,12 @@ export default function App() {
         handleSearch={handleSearch}
       />
       <Toolbar />
-      <Grid container spacing={1}>
+      <Grid container spacing={1} sx={{ padding: "1rem" }}>
         {items?.map((article) => (
           <ArticleCard article={article} key={article.name} />
         ))}
       </Grid>
-      <div className={"footer"}>
-        Alle Preise sind in Euro (€) inkl. gesetzlicher Umsatzsteuer und
-        Versandkosten.
-      </div>
+      <Footer/>
 
       <DrawerComponent
         open={open}
@@ -108,6 +113,6 @@ export default function App() {
         categories={categories}
         drawerWidth={drawerWidth}
       />
-    </div>
+    </Box>
   );
 }

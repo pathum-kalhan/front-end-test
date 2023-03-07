@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, Toolbar, TextField } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { HeaderProps } from "../types";
+import { HeaderProps } from "../../types";
 import { Box } from "@mui/system";
 
 export default function Header(props: HeaderProps) {
@@ -19,8 +19,8 @@ export default function Header(props: HeaderProps) {
           }}
         >
           <Box>
-            <IconButton>
-              <MenuIcon onClick={toggleDrawer} sx={{color:"white"}} />
+            <IconButton onClick={toggleDrawer}>
+              <MenuIcon  sx={{color:"white"}} />
             </IconButton>
             <strong>home24</strong>
           </Box>

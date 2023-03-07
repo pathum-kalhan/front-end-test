@@ -1,7 +1,7 @@
 import React from 'react'
 import { Drawer } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { DrawerProps } from '../types';
+import { DrawerProps } from '../../types';
 export default function DrawerComponent(props:DrawerProps) {
    const { open, toggleDrawer, categories,drawerWidth } = props;
   return (
@@ -16,7 +16,10 @@ export default function DrawerComponent(props:DrawerProps) {
     }}
   >
     <div className={"sidebar"}>
-      <ChevronLeftIcon onClick={toggleDrawer} />
+      <div style={{textAlign:"right",padding:"0 0.5rem"}}>
+      <ChevronLeftIcon fontSize="large"  onClick={toggleDrawer} />
+
+      </div>
       <h3>Kategorien</h3>
       {categories.length ? (
         <ul>

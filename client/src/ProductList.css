@@ -4,15 +4,16 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) ) ; */
 }
 
-.item {
+.article {
   border: 1px solid lavenderblush;
   padding: 10px;
   /* display: flex;
   flex-direction: column; */
 }
 
-.item__button {
+.article__button {
   /* margin: 10px 0; */
+  /* margin-top: auto; */
   padding: .2rem;
   background-color: lightgoldenrodyellow;
   border: 1px solid lightgray;
@@ -21,7 +22,7 @@
   margin-top: auto;
 }
 
-.item__sections{
+.article__sections{
   padding: 4px 0;
   margin: 4px 0;
 }

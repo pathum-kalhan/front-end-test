@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ArticleCard from "./ArticleCard";
 
 const article = {
@@ -23,12 +23,19 @@ const article = {
 };
 
 test("renders ArticleCard component correctly", () => {
-  const screen = render(<ArticleCard article={article} />);
-  
+  render(<ArticleCard article={article} />);
 
+  const imgElement = screen.getByRole("img", {
+    name: /lattenrost premium 42 fix/i,
+  });
+  expect(imgElement).toBeInTheDocument();
 
+  const nameElement = screen.getByText(/lattenrost premium 42 fix/i);
+  expect(nameElement).toBeInTheDocument();
 
+  const priceElement = screen.getByText(/229,99/i);
+  expect(priceElement).toBeInTheDocument();
 
-
- 
+  const buttonElement = screen.getByRole("button", { name: /add to cart/i });
+  expect(buttonElement).toBeInTheDocument();
 });
