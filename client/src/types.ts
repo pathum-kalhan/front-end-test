@@ -33,3 +33,16 @@ export type Image = {
 export type CategoryArticle = {
   articles: Article[]
 }
+
+export type HeaderProps = {
+  toggleDrawer: () => void;
+  searchQuery: string;
+  handleSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export type DrawerProps = {
+  toggleDrawer: () => void;
+  open: boolean;
+  categories: Category[];
+  drawerWidth: number;
+}
